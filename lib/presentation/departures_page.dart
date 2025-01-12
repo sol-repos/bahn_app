@@ -1,4 +1,4 @@
-import 'package:bahn_app/bahn_expert_view.dart';
+import 'package:bahn_app/presentation/bahn_expert_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 
@@ -10,7 +10,7 @@ class DeparturesPage extends StatelessWidget {
     return Scaffold(
       appBar: _AppBar(),
       body: Center(
-        child: BahnExpertView(path: '/'),
+        child: BahnExpertWebView(path: '/'),
       ),
     );
   }

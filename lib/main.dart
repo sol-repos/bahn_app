@@ -1,4 +1,4 @@
-import 'package:bahn_app/departures_page.dart';
+import 'package:bahn_app/presentation/departures_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,25 +1,18 @@
-import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class BahnExpertView extends StatefulWidget {
-  const BahnExpertView({super.key, required this.path});
+class BahnExpertWebViewController {
+  static WebViewController? _controller;
 
-  final String path;
+  static WebViewController get controller {
+    if (_controller == null) {
+      return _init();
+    } else {
+      return _controller!;
+    }
+  }
 
-  @override
-  State<BahnExpertView> createState() => _BahnExpertViewState();
-}
-
-class _BahnExpertViewState extends State<BahnExpertView> {
-  late WebViewController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-
-    final pathWithLeadingBackslash = widget.path.startsWith('/') ? widget.path : '/${widget.path}';
-
-    _controller = WebViewController()
+  static WebViewController _init() {
+    return _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(
         NavigationDelegate(
@@ -35,13 +28,12 @@ class _BahnExpertViewState extends State<BahnExpertView> {
             return NavigationDecision.navigate;
           },
         ),
-      )
-      ..loadRequest(Uri.parse('https://bahn.expert$pathWithLeadingBackslash'));
+      );
   }
 
-  void _runSiteModifications() async {
-    await _controller.runJavaScript(
-      """
+  static void _runSiteModifications() async {
+    await controller.runJavaScript(
+        """
       function runSiteModifications() {
         var header = document.querySelector('header');
         var headerDiv = document.querySelector('.css-o5q8sw');
@@ -62,9 +54,8 @@ class _BahnExpertViewState extends State<BahnExpertView> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return WebViewWidget(controller: _controller);
+  static Future<void> loadPath(String path) {
+    final pathWithLeadingBackslash = path.startsWith('/') ? path : '/$path';
+    return controller.loadRequest(Uri.parse('https://bahn.expert$pathWithLeadingBackslash'));
   }
 }
-
