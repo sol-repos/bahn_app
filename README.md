@@ -1,16 +1,17 @@
 # bahn_app
-
 Flutter app wrapper around bahn.expert with additional tools.
 
-## Getting Started
+## Currently implemented features
+- Search for departures
 
-This project is a starting point for a Flutter application.
+## Planned features
+- Search for connections
+- Calculate ticket prices
+- Filter search results
+- Save connections and stations
+- Visual Overhaul and Customization options
+- Rename project to "WoZug" or sth
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Disclaimer
+This app is also not affiliated with Deutsche Bahn AG, any of its partners or bahn.expert.
+It is a private project and not intended for commercial use.
