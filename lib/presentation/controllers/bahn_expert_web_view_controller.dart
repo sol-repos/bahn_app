@@ -32,6 +32,7 @@ class BahnExpertWebViewController {
   }
 
   static void _runSiteModifications() async {
+    // TODO: Snackbar is still shown, fix
     await controller.runJavaScript(
         """
       function runSiteModifications() {
@@ -55,7 +56,7 @@ class BahnExpertWebViewController {
   }
 
   static Future<void> loadPath(String path) {
-    final pathWithLeadingBackslash = path.startsWith('/') ? path : '/$path';
-    return controller.loadRequest(Uri.parse('https://bahn.expert$pathWithLeadingBackslash'));
+    final uri = Uri.https('bahn.expert', path);
+    return controller.loadRequest(uri);
   }
 }

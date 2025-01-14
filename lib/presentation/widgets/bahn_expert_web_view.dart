@@ -1,4 +1,4 @@
-import 'package:bahn_app/domain/bahn_expert_web_view_controller.dart';
+import 'package:bahn_app/presentation/controllers/bahn_expert_web_view_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
